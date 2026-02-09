@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-// 1. IMPORT 'Variants' TYPE
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useLoading } from "../context/LoadingContext";
 
@@ -58,8 +57,6 @@ export default function Header() {
             setIsOpen(true);
         }
     };
-
-    // 2. APPLY ': Variants' TYPE TO ALL ANIMATION OBJECTS
 
     const menuVariants: Variants = {
         closed: {
