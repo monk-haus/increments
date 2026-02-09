@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+// 1. IMPORT 'Variants' TYPE
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useLoading } from "../context/LoadingContext";
 
 const navLinks = [
@@ -58,23 +59,65 @@ export default function Header() {
         }
     };
 
-    const menuVariants = {
-        closed: { opacity: 0, y: "-100%", transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } },
-        open: { opacity: 1, y: "0%", transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } },
+    // 2. APPLY ': Variants' TYPE TO ALL ANIMATION OBJECTS
+
+    const menuVariants: Variants = {
+        closed: {
+            opacity: 0,
+            y: "-100%",
+            transition: {
+                duration: 0.5,
+                ease: [0.76, 0, 0.24, 1]
+            }
+        },
+        open: {
+            opacity: 1,
+            y: "0%",
+            transition: {
+                duration: 0.5,
+                ease: [0.76, 0, 0.24, 1]
+            }
+        },
     };
 
-    const contentVariants = {
+    const contentVariants: Variants = {
         initial: { opacity: 0, y: 10 },
-        animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-        exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.4,
+                ease: "easeOut"
+            }
+        },
+        exit: {
+            opacity: 0,
+            y: -10,
+            transition: {
+                duration: 0.3
+            }
+        },
     };
 
-    const dropdownVariants = {
-        closed: { opacity: 0, y: -10, transition: { duration: 0.2 } },
-        open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+    const dropdownVariants: Variants = {
+        closed: {
+            opacity: 0,
+            y: -10,
+            transition: {
+                duration: 0.2
+            }
+        },
+        open: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
     };
 
-    const headerItemVariants = {
+    const headerItemVariants: Variants = {
         hidden: { opacity: 0, y: -10 },
         visible: {
             opacity: 1,
